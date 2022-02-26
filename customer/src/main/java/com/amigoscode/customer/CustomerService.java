@@ -3,7 +3,7 @@ package com.amigoscode.customer;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService() {
+public record CustomerService(CustomerRepository customerRepository) {
 
 	public void registerCustomer(CustomerRegistrationRequest request) {
 		Customer customer = Customer.builder()
@@ -12,5 +12,7 @@ public record CustomerService() {
 				.email(request.email())
 				.build();
 		//TODO validations
+
+		customerRepository.save(customer);
 	}
 }
