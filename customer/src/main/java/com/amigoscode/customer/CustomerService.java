@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CustomerService{
+public class CustomerService {
 
 	private final CustomerRepository customerRepository;
 	private final FraudClient fraudClient;
