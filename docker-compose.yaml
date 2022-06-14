@@ -49,6 +49,8 @@ services:
       - spring
     depends_on:
       - zipkin
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
   apigw:
     image: amigoscode/apigw:latest
     container_name: apigw
@@ -59,6 +61,8 @@ services:
     depends_on:
       - zipkin
       - eureka-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
 
 networks:
   postgres:
